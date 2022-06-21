@@ -86,8 +86,8 @@ describe("New order self", function () {
                                             let fullYear = date.getFullYear();
                                             let year = fullYear.toString().slice(-2);
                                             // Составление шаблона номера заказа (ругулярки) с актуальным месяцем и годом
-                                            //let pattern = '№' + year + month + (/-2[0-9]{5}-[0-9]{5}/i); //не работает
-                                            let pattern = /№ 2206-2[0-9]{5}-[0-9]{5}/i;
+
+                                            let pattern = new RegExp('№ ' + year + month + '-2[0-9]{5}-[0-9]{5}')
                                             cy.get('[data-qa="number"]')
                                                 .first()
                                                 .invoke('text')
